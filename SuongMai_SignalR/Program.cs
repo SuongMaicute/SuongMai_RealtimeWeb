@@ -37,6 +37,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.MapHub<UserHub>("/hubs/userCount");
+app.MapHub<DeathlyHallowsHub>("/hubs/deathyhallows");
 
 app.UseAuthorization();
 
