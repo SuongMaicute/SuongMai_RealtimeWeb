@@ -8,7 +8,6 @@ Architecture:
 - Back end:
   + Using ASP.NET API
   + Framework: Entity Framework, SignalR, IdentityUser
-  + Implementing 7 microservices using .NET 8(preview)
 ********************
 How to implement:
   1. Clone project, check all appsettings.json file and change to your
