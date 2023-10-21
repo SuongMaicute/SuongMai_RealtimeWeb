@@ -1,6 +1,7 @@
 ﻿//using Microsoft.signalR
 // create a connecttion
 var connectionUserCount = new signalR.HubConnectionBuilder()
+    .withAutomaticReconnect()
     .withUrl("/hubs/userCount", signalR.HttpTransportType.ServerSentEvents).build();
 
 // connect to method that hub
@@ -26,5 +27,18 @@ function fulfilled(){
 function rejected() {
 
 }
+// what going on if connection interupt
+connectionUserCount.onclose((error) => {
+    document.body.style.background = "red";
+});
+
+connectionUserCount.onreconnected((connectionId) => {
+    document.body.style.background = "green";
+});
+
+connectionUserCount.onreconnecting((error) => {
+    document.body.style.background = "yellow";
+});
+
 // start connection 
 connectionUserCount.start().then(fulfilled, rejected);

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SuongMai_SignalR.Models;
 
 namespace SuongMai_SignalR.Data
 {
@@ -9,5 +10,8 @@ namespace SuongMai_SignalR.Data
             : base(options)
         {
         }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<ChatRoom> ChatRooms { get; set; }
+
     }
 }

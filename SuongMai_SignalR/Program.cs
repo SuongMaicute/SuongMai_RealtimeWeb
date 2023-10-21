@@ -14,6 +14,15 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+// n?u sd azure signal R
+//1. Dowload package: microsoft.azure.signalR
+// var connection string = ""; find it in: connectiontring=> priarykey=> connection string
+//builder.Services.AddSignalR().AddAzureSignalR(string);
+// => build application, it will work on your azure , it will show data in overview screen in azure
+
+
+
+
 
 builder.Services.AddSignalR();
 
@@ -38,6 +47,14 @@ app.UseStaticFiles();
 app.UseRouting();
 app.MapHub<UserHub>("/hubs/userCount");
 app.MapHub<DeathlyHallowsHub>("/hubs/deathyhallows");
+app.MapHub<HouseGroupHub>("/hubs/houseGroup");
+app.MapHub<NotificationHub>("/hubs/notificationHub");
+app.MapHub<BasicChatHub>("/hubs/basicChatHub");
+app.MapHub<ChatHub>("/hubs/chat");
+
+
+
+
 
 app.UseAuthorization();
 
